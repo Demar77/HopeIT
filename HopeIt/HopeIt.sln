@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeIt.Mobile.App", "HopeIt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeIt.Web.WWW", "HopeIt.Web.WWW\HopeIt.Web.WWW.csproj", "{AE56C877-A026-4D67-833C-42F1AC6C186E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeIt.Web.Core", "HopeIt.Web.Core\HopeIt.Web.Core.csproj", "{22D0564A-D1AE-443C-9C6B-7B595761A202}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HopeIt.Web.Core", "HopeIt.Web.Core\HopeIt.Web.Core.csproj", "{22D0564A-D1AE-443C-9C6B-7B595761A202}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeIT.DataExchangeWebService", "HopeIT.DataExchangeWebService\HopeIT.DataExchangeWebService.csproj", "{027530A2-B2F3-42C3-8EAF-DE06D0BD3CCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{22D0564A-D1AE-443C-9C6B-7B595761A202}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22D0564A-D1AE-443C-9C6B-7B595761A202}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22D0564A-D1AE-443C-9C6B-7B595761A202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{027530A2-B2F3-42C3-8EAF-DE06D0BD3CCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{027530A2-B2F3-42C3-8EAF-DE06D0BD3CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{027530A2-B2F3-42C3-8EAF-DE06D0BD3CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{027530A2-B2F3-42C3-8EAF-DE06D0BD3CCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
