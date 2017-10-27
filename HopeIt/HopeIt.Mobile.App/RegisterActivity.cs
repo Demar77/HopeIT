@@ -12,19 +12,20 @@ using Android.Widget;
 
 namespace HopeIt.Mobile.App
 {
-    [Activity(Label = "AboutActivity")]
-    public class AboutActivity : Activity
+    [Activity(Label = "RegisterActivity")]
+    public class RegisterActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.About);
-           
-            Button btnBackToMainView = FindViewById<Button>(Resource.Id.btnBackToMainView);
-            btnBackToMainView.Click += BtnBackToMainView_Click;
+              SetContentView(Resource.Layout.Register);
+            //StartActivity(typeof(RegisterActivity));
+
+            Button btnBackToMain = FindViewById<Button>(Resource.Id.btnBackToMain);
+            btnBackToMain.Click += BtnBackToMain_Click;
         }
 
-        private void BtnBackToMainView_Click(object sender, EventArgs e)
+        private void BtnBackToMain_Click(object sender, EventArgs e)
         {
             Toast.MakeText(this, "Strona główna", ToastLength.Short).Show();
             StartActivity(typeof(MainActivity));
