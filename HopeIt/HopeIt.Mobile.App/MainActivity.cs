@@ -13,32 +13,41 @@ namespace HopeIt.Mobile.App
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             Button btnAbout = FindViewById<Button>(Resource.Id.btnAbout);
-            Button btnBackButton = FindViewById<Button>(Resource.Id.btnBackToMainView);
+            Button btnBack = FindViewById<Button>(Resource.Id.btnBackToMainView);
             Button btnLogin = FindViewById<Button>(Resource.Id.btnLogin);        
             Button btnRegister = FindViewById<Button>(Resource.Id.btnRegister);
-
+            Button btnBackToMAin = FindViewById<Button>(Resource.Id.btnBackToMain);
 
             btnAbout.Click += BtnAbout_Click;
-            btnBackButton.Click += BtnBackButton_Click;
+            btnBack.Click += BtnBackButton_Click;
             btnLogin.Click += BtnLogin_Click;
             btnRegister.Click += BtnRegister_Click;
+            btnBackToMAin.Click += BtnBackToMAin_Click;
 
+        }
+
+        private void BtnBackToMAin_Click(object sender, System.EventArgs e)
+        {
+            Toast.MakeText(this, "Strona główna", ToastLength.Short).Show();
+            SetContentView(Resource.Layout.Main);
         }
 
         private void BtnRegister_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            Toast.MakeText(this, "Rejestracja", ToastLength.Short).Show();
+            SetContentView(Resource.Layout.Register);
         }
 
         private void BtnLogin_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            Toast.MakeText(this, "Profil", ToastLength.Short).Show();
+            SetContentView(Resource.Layout.Profile);
         }
 
         private void BtnBackButton_Click(object sender, System.EventArgs e)
         {
             Toast.MakeText(this, "Strona główna", ToastLength.Short).Show();
-            SetContentView(Resource.Layout.About);
+            SetContentView(Resource.Layout.Main);
         }
 
         private void BtnAbout_Click(object sender, System.EventArgs e)

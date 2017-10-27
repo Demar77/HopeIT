@@ -47,6 +47,9 @@ namespace HopeIt.Mobile.App
 			// aapt resource value: 0x7f040004
 			public const int btnAbout = 2130968580;
 			
+			// aapt resource value: 0x7f040005
+			public const int btnBackToMain = 2130968581;
+			
 			// aapt resource value: 0x7f040000
 			public const int btnBackToMainView = 2130968576;
 			
@@ -80,6 +83,9 @@ namespace HopeIt.Mobile.App
 			
 			// aapt resource value: 0x7f020002
 			public const int Profile = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int Register = 2130837507;
 			
 			static Layout()
 			{
