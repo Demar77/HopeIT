@@ -12,25 +12,23 @@ namespace HopeIt.Mobile.App
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+           // StartActivity(typeof(MainActivity));
+
+
             Button btnAbout = FindViewById<Button>(Resource.Id.btnAbout);
-            Button btnBack = FindViewById<Button>(Resource.Id.btnBackToMainView);
-            Button btnLogin = FindViewById<Button>(Resource.Id.btnLogin);        
+            Button btnLogin = FindViewById<Button>(Resource.Id.btnLogin);
             Button btnRegister = FindViewById<Button>(Resource.Id.btnRegister);
-            Button btnBackToMAin = FindViewById<Button>(Resource.Id.btnBackToMain);
+
 
             btnAbout.Click += BtnAbout_Click;
-            btnBack.Click += BtnBackButton_Click;
             btnLogin.Click += BtnLogin_Click;
             btnRegister.Click += BtnRegister_Click;
-            btnBackToMAin.Click += BtnBackToMAin_Click;
+
+
 
         }
 
-        private void BtnBackToMAin_Click(object sender, System.EventArgs e)
-        {
-            Toast.MakeText(this, "Strona główna", ToastLength.Short).Show();
-            SetContentView(Resource.Layout.Main);
-        }
+
 
         private void BtnRegister_Click(object sender, System.EventArgs e)
         {
@@ -44,16 +42,14 @@ namespace HopeIt.Mobile.App
             SetContentView(Resource.Layout.Profile);
         }
 
-        private void BtnBackButton_Click(object sender, System.EventArgs e)
-        {
-            Toast.MakeText(this, "Strona główna", ToastLength.Short).Show();
-            SetContentView(Resource.Layout.Main);
-        }
-
         private void BtnAbout_Click(object sender, System.EventArgs e)
         {
             Toast.MakeText(this, "O nas", ToastLength.Short).Show();
+            StartActivity(typeof(AboutActivity));
             SetContentView(Resource.Layout.About);
+
+
+
         }
     }
 }
