@@ -86,6 +86,7 @@
       <LastGenOutput>HopeITModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="baza.bak" />
+    <None Include="HopeIT1.bak" />
     <None Include="Model\HopeITModel.edmx.diagram">
       <DependentUpon>HopeITModel.edmx</DependentUpon>
     </None>
