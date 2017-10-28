@@ -115,6 +115,9 @@
       <DependentUpon>HopeITModel.edmx</DependentUpon>
       <LastGenOutput>HopeITModel.cs</LastGenOutput>
     </Content>
+    <Content Include="ScriptDataBase2.sql">
+      <SubType>Component</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
