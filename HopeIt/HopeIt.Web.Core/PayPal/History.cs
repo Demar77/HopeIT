@@ -1,11 +1,12 @@
 ﻿using PayPal.Api;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HopeIt.Web.Core.PayPal
 {
     public class History
     {
-        public void GetAllTransactions()
+        public List<Payment> GetAllTransactions()
         {
             //var config = ConfigManager.Instance.GetProperties();
             //var accessToken = new OAuthTokenCredential(config).GetAccessToken();
@@ -14,13 +15,33 @@ namespace HopeIt.Web.Core.PayPal
             //var apiContext = new APIContext("APUFQmLx9NphmBcTIE3oGC1r73WUAoXZKTZDLE0sPV5oiu5aPEO3oSAN");
 
             var config = new Dictionary<string, string>();
+            config[BaseConstants.ApplicationModeConfig] = "sandbox";
             config[BaseConstants.ClientId] = "ATuSOprPCDSS-d-yx71tzDG7c-Og47vYuTVAi8OsZIv9xeIUz5JSmvEanPmPS5FX9HrvDz7Q0zqK5OdC";
             config[BaseConstants.ClientSecret] = "EEacAoBEf5wmBfW794gFeNNnzYlLwdBDuGxt0W988diZxt9V87UFqz4oyDahOdl1_c6SWEd71rRxcNM1";
             var accessToken = new OAuthTokenCredential(config).GetAccessToken();
             var apiContext = new APIContext(accessToken);
             // Make an API call
 
-            var paymentList = Payment.List(apiContext, count: 10, startIndex: 5);
+            var paymentList = Payment.List(apiContext);
+            return paymentList.payments;
+        }
+
+        public List<PayerInfo> GetDonors()
+        {
+            var payerInfoList = new List<PayerInfo>();
+            var payments = GetAllTransactions();
+            foreach (var payment in payments)
+            {
+                payerInfoList.Add(payment.payer.payer_info);
+            }
+            return payerInfoList;
+        }
+
+        public List<Transaction> GetDonorHistory(string payer_id)
+        {
+            var paymentList = GetAllTransactions();
+            var transactions = paymentList.Where(d => d.payer.payer_info.payer_id == payer_id).SelectMany(t => t.transactions);
+            return transactions.ToList();
         }
     }
 }

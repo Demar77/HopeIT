@@ -52,6 +52,9 @@
     <Compile Include="Model\AppUser.cs">
       <DependentUpon>HopeITModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DonationDetail.cs">
+      <DependentUpon>HopeITModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\HopeITModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
