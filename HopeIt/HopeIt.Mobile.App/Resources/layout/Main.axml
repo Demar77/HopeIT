@@ -4,11 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="Aby się zalogować wpisz numer telefonu"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Numer telefonu"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtViewLogin" />
+        android:id="@+id/PhoneNumberLabel"
+        android:textAlignment="center"
+        android:gravity="center" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/PhoneNumber" />
     <Button
         android:text="Zaloguj"
         android:layout_width="match_parent"
@@ -18,10 +24,6 @@
         android:text="Zarejestruj się"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnRegister" />
-    <Button
-        android:text="O nas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnAbout" />
+        android:id="@+id/btnRegister"
+        android:visibility="invisible" />
 </LinearLayout>

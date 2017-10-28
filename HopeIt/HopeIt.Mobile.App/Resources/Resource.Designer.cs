@@ -2213,6 +2213,15 @@ namespace HopeIt.Mobile.App
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f07009e
+			public const int BackButton = 2131165342;
+			
+			// aapt resource value: 0x7f070074
+			public const int PhoneNumber = 2131165300;
+			
+			// aapt resource value: 0x7f070073
+			public const int PhoneNumberLabel = 2131165299;
+			
 			// aapt resource value: 0x7f070090
 			public const int action0 = 2131165328;
 			
@@ -2273,20 +2282,17 @@ namespace HopeIt.Mobile.App
 			// aapt resource value: 0x7f07002a
 			public const int bottom = 2131165226;
 			
-			// aapt resource value: 0x7f070076
-			public const int btnAbout = 2131165302;
-			
-			// aapt resource value: 0x7f07009d
-			public const int btnBackToMain = 2131165341;
+			// aapt resource value: 0x7f07009f
+			public const int btnBackToMain = 2131165343;
 			
 			// aapt resource value: 0x7f070069
 			public const int btnBackToMainView = 2131165289;
 			
-			// aapt resource value: 0x7f070074
-			public const int btnLogin = 2131165300;
-			
 			// aapt resource value: 0x7f070075
-			public const int btnRegister = 2131165301;
+			public const int btnLogin = 2131165301;
+			
+			// aapt resource value: 0x7f070076
+			public const int btnRegister = 2131165302;
 			
 			// aapt resource value: 0x7f070044
 			public const int buttonPanel = 2131165252;
@@ -2648,6 +2654,9 @@ namespace HopeIt.Mobile.App
 			// aapt resource value: 0x7f07004d
 			public const int textSpacerNoButtons = 2131165261;
 			
+			// aapt resource value: 0x7f07009d
+			public const int textView1 = 2131165341;
+			
 			// aapt resource value: 0x7f070096
 			public const int time = 2131165334;
 			
@@ -2665,9 +2674,6 @@ namespace HopeIt.Mobile.App
 			
 			// aapt resource value: 0x7f07006a
 			public const int touch_outside = 2131165290;
-			
-			// aapt resource value: 0x7f070073
-			public const int txtViewLogin = 2131165299;
 			
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;

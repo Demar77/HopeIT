@@ -3,5 +3,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:layout_weight="1" />
+    <Button
+        android:text="Powrót"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/BackButton" />
 </LinearLayout>
