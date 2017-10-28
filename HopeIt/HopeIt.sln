@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeIt.Web.Core.Test", "Hop
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeIT.DataExchangeWebService", "HopeIT.DataExchangeWebService\HopeIT.DataExchangeWebService.csproj", "{027530A2-B2F3-42C3-8EAF-DE06D0BD3CCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeIT.Common", "HopeIT.Common\HopeIT.Common.csproj", "{F95DCC30-EF1C-4616-9E24-FFFF69168762}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeIT.Database", "HopeIT.Database\HopeIT.Database.csproj", "{7ADBE061-BFF5-4F48-8452-1DD87F7723D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeIT.Database.UnitTest", "HopeIT.Database.UnitTest\HopeIT.Database.UnitTest.csproj", "{EC85BE9E-26FC-4AC7-A097-EF73CDB7D69F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +53,18 @@ Global
 		{027530A2-B2F3-42C3-8EAF-DE06D0BD3CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{027530A2-B2F3-42C3-8EAF-DE06D0BD3CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{027530A2-B2F3-42C3-8EAF-DE06D0BD3CCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F95DCC30-EF1C-4616-9E24-FFFF69168762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F95DCC30-EF1C-4616-9E24-FFFF69168762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F95DCC30-EF1C-4616-9E24-FFFF69168762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F95DCC30-EF1C-4616-9E24-FFFF69168762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ADBE061-BFF5-4F48-8452-1DD87F7723D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ADBE061-BFF5-4F48-8452-1DD87F7723D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ADBE061-BFF5-4F48-8452-1DD87F7723D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ADBE061-BFF5-4F48-8452-1DD87F7723D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC85BE9E-26FC-4AC7-A097-EF73CDB7D69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC85BE9E-26FC-4AC7-A097-EF73CDB7D69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC85BE9E-26FC-4AC7-A097-EF73CDB7D69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC85BE9E-26FC-4AC7-A097-EF73CDB7D69F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
