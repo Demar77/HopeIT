@@ -29,7 +29,7 @@
         .SetWidth(30)
         .RenderValueAs(d =>
             @<b>
-                @Html.ActionLink("Donations", "Index")
+                @Html.ActionLink(" ","Profile", "AppUser", new { @idUser =d.Id}, new { @class = "btn btn-primary btn-sm glyphicon glyphicon-user" })
             </b>);
        columns.Add(c => c.Id)
        .Titled("Client ID");

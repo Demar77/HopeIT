@@ -30,6 +30,22 @@ namespace HopeIT.Database.Repository
             }
         }
 
+        public List<DonationDetail> GetDonationDetailsByUserId(int id)
+        {
+            using (var context = new HopeITEntities())
+            {
+                var query = context.DonationDetails.Where(r => r.IdAppUser == id);
+               var listDonations = new List<DonationDetail>();
+
+                foreach (var item in query)
+                {
+                    listDonations.Add(new DonationDetail { Id = item.Id, IdAppUser = item.IdAppUser, Kwota = item.Kwota, Opis = item.Opis });
+                }
+
+                return listDonations;
+            }
+        }
+
         public BaseResponse Update(AppUser appUser)
         {
             var result = new BaseResponse();

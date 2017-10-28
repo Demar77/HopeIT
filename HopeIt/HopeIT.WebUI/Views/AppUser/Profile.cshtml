@@ -1,8 +1,32 @@
-﻿
+﻿@model IEnumerable<HopeIT.Database.Model.DonationDetail>
+@using GridMvc.Html
 @{
     ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Profile</h2>
+
+@Html.ActionLink(" ", "Index", "AppUser", new { @class = "btn btn-primary btn-sm glyphicon glyphicon-arrow-left" })
+
+@if (Model.FirstOrDefault() != null)
+{
+    <hr />
+    <div style="width:500px;">
+        @Html.Grid(Model).Columns(columns =>
+   {
+       columns.Add(c => c.Kwota)
+       .Titled("Kwota");
+       columns.Add(c => c.Opis)
+       .Titled("Opis")
+       .Filterable(true);
+   }).WithPaging(3).Sortable(true)
+    </div>
+}
+else
+{
+    <p>Aktualnie brak wpłat.</p>
+}
+
+
 

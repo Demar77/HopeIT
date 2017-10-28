@@ -26,5 +26,6 @@ namespace HopeIT.Database.Model
         }
     
         public virtual DbSet<AppUser> AppUsers { get; set; }
+        public virtual DbSet<DonationDetail> DonationDetails { get; set; }
     }
 }

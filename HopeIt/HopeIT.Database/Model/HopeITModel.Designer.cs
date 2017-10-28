@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\lukaszp\source\repos\HopeIT.Database\HopeIT.Database\Model\HopeITModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\adm\Source\Repos\HopeIT\HopeIt\HopeIT.Database\Model\HopeITModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

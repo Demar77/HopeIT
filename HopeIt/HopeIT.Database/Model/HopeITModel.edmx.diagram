@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="3a836d8421dc4d60a1b152ba90ceb95d" Name="Diagram1">
         <EntityTypeShape EntityType="HopeIT.Database.Model.AppUser" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HopeIT.Database.Model.DonationDetail" Width="1.5" PointX="3" PointY="4.25" />
+        <AssociationConnector Association="HopeIT.Database.Model.FK_DonationDetails_AppUser" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

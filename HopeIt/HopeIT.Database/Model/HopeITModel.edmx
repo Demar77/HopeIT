@@ -12,8 +12,45 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HopeIT.dbo.DonationDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DonationDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdAppUser" />
+            <PropertyRef Name="Kwota" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAppUser" Type="int" Nullable="false" />
+          <Property Name="Kwota" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Opis" Type="text" />
+        </EntityType>
+        <Association Name="FK_DonationDetails_AppUser">
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+          <End Role="DonationDetails" Type="Self.DonationDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DonationDetails">
+              <PropertyRef Name="IdAppUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="HopeITDatabaseModelStoreContainer">
           <EntitySet Name="AppUser" EntityType="Self.AppUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DonationDetails" EntityType="Self.DonationDetails" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DonationDetails].[Id] AS [Id], 
+    [DonationDetails].[IdAppUser] AS [IdAppUser], 
+    [DonationDetails].[Kwota] AS [Kwota], 
+    [DonationDetails].[Opis] AS [Opis]
+    FROM [dbo].[DonationDetails] AS [DonationDetails]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_DonationDetails_AppUser" Association="Self.FK_DonationDetails_AppUser">
+            <End Role="AppUser" EntitySet="AppUser" />
+            <End Role="DonationDetails" EntitySet="DonationDetails" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -21,6 +58,11 @@
       <Schema Namespace="HopeIT.Database.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="HopeITEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AppUsers" EntityType="HopeIT.Database.Model.AppUser" />
+          <EntitySet Name="DonationDetails" EntityType="HopeIT.Database.Model.DonationDetail" />
+          <AssociationSet Name="FK_DonationDetails_AppUser" Association="HopeIT.Database.Model.FK_DonationDetails_AppUser">
+            <End Role="AppUser" EntitySet="AppUsers" />
+            <End Role="DonationDetail" EntitySet="DonationDetails" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AppUser">
           <Key>
@@ -28,7 +70,32 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DonationDetails" Relationship="HopeIT.Database.Model.FK_DonationDetails_AppUser" FromRole="AppUser" ToRole="DonationDetail" />
         </EntityType>
+        <EntityType Name="DonationDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdAppUser" />
+            <PropertyRef Name="Kwota" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAppUser" Type="Int32" Nullable="false" />
+          <Property Name="Kwota" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AppUser" Relationship="HopeIT.Database.Model.FK_DonationDetails_AppUser" FromRole="DonationDetail" ToRole="AppUser" />
+        </EntityType>
+        <Association Name="FK_DonationDetails_AppUser">
+          <End Type="HopeIT.Database.Model.AppUser" Role="AppUser" Multiplicity="1" />
+          <End Type="HopeIT.Database.Model.DonationDetail" Role="DonationDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DonationDetail">
+              <PropertyRef Name="IdAppUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -39,6 +106,16 @@
             <EntityTypeMapping TypeName="HopeIT.Database.Model.AppUser">
               <MappingFragment StoreEntitySet="AppUser">
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DonationDetails">
+            <EntityTypeMapping TypeName="HopeIT.Database.Model.DonationDetail">
+              <MappingFragment StoreEntitySet="DonationDetails">
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="Kwota" ColumnName="Kwota" />
+                <ScalarProperty Name="IdAppUser" ColumnName="IdAppUser" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

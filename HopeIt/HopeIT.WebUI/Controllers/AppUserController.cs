@@ -37,9 +37,12 @@ namespace HopeIT.WebUI.Controllers
         // 
         // GET: /AppUser/List/ 
 
-        public ActionResult Profile()
+        public ActionResult Profile(int idUser)
         {
-            return View();
+            var repo = new AppUserRepo();
+            var result = repo.GetDonationDetailsByUserId(idUser);
+
+            return View(result);
         }
 
 
