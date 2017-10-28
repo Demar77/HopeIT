@@ -19,7 +19,8 @@ namespace HopeIt.Mobile.App
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.About);
-           
+           // StartActivity(typeof(AboutActivity));
+
             Button btnBackToMainView = FindViewById<Button>(Resource.Id.btnBackToMainView);
             btnBackToMainView.Click += BtnBackToMainView_Click;
         }
@@ -28,7 +29,7 @@ namespace HopeIt.Mobile.App
         {
             Toast.MakeText(this, "Strona główna", ToastLength.Short).Show();
             StartActivity(typeof(MainActivity));
-           // SetContentView(Resource.Layout.Main);
+           //SetContentView(Resource.Layout.Main);
         }
     }
 }

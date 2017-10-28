@@ -29,7 +29,7 @@ namespace HopeIt.Mobile.App
         {
             Toast.MakeText(this, "Strona główna", ToastLength.Short).Show();
             StartActivity(typeof(MainActivity));
-           // SetContentView(Resource.Layout.Main);
+          // SetContentView(Resource.Layout.Main);
         }
     }
 }
