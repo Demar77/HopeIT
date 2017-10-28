@@ -20,6 +20,8 @@
 <body>
     <h1>Donors list</h1>
     <hr />
+    @Html.ActionLink("Aktualizuj dane", "UpdateData", "AppUser", new { @class = "btn btn-primary btn-sm" })
+    <br />
     <div style="width:500px;">
         @Html.Grid(Model).Columns(columns =>
    {

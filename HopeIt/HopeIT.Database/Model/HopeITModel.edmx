@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HopeIT.Database.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HopeITModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AppUser">
           <Key>
             <PropertyRef Name="Id" />
@@ -12,13 +12,9 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'HopeIT.dbo.DonationDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DonationDetails">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="IdAppUser" />
-            <PropertyRef Name="Kwota" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdAppUser" Type="int" Nullable="false" />
@@ -37,86 +33,78 @@ warning 6002: The table/view 'HopeIT.dbo.DonationDetails' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HopeITDatabaseModelStoreContainer">
+        <EntityContainer Name="HopeITModelStoreContainer">
           <EntitySet Name="AppUser" EntityType="Self.AppUser" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DonationDetails" EntityType="Self.DonationDetails" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [DonationDetails].[Id] AS [Id], 
-    [DonationDetails].[IdAppUser] AS [IdAppUser], 
-    [DonationDetails].[Kwota] AS [Kwota], 
-    [DonationDetails].[Opis] AS [Opis]
-    FROM [dbo].[DonationDetails] AS [DonationDetails]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="DonationDetails" EntityType="Self.DonationDetails" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DonationDetails_AppUser" Association="Self.FK_DonationDetails_AppUser">
             <End Role="AppUser" EntitySet="AppUser" />
             <End Role="DonationDetails" EntitySet="DonationDetails" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="HopeIT.Database.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="HopeITEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AppUsers" EntityType="HopeIT.Database.Model.AppUser" />
-          <EntitySet Name="DonationDetails" EntityType="HopeIT.Database.Model.DonationDetail" />
-          <AssociationSet Name="FK_DonationDetails_AppUser" Association="HopeIT.Database.Model.FK_DonationDetails_AppUser">
-            <End Role="AppUser" EntitySet="AppUsers" />
-            <End Role="DonationDetail" EntitySet="DonationDetails" />
-          </AssociationSet>
-        </EntityContainer>
+      <Schema Namespace="HopeITModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="AppUser">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DonationDetails" Relationship="HopeIT.Database.Model.FK_DonationDetails_AppUser" FromRole="AppUser" ToRole="DonationDetail" />
+          <NavigationProperty Name="DonationDetails" Relationship="Self.FK_DonationDetails_AppUser" FromRole="AppUser" ToRole="DonationDetails" />
         </EntityType>
         <EntityType Name="DonationDetail">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="IdAppUser" />
-            <PropertyRef Name="Kwota" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdAppUser" Type="Int32" Nullable="false" />
-          <Property Name="Kwota" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Kwota" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="AppUser" Relationship="HopeIT.Database.Model.FK_DonationDetails_AppUser" FromRole="DonationDetail" ToRole="AppUser" />
+          <NavigationProperty Name="AppUser" Relationship="Self.FK_DonationDetails_AppUser" FromRole="DonationDetails" ToRole="AppUser" />
         </EntityType>
         <Association Name="FK_DonationDetails_AppUser">
-          <End Type="HopeIT.Database.Model.AppUser" Role="AppUser" Multiplicity="1" />
-          <End Type="HopeIT.Database.Model.DonationDetail" Role="DonationDetail" Multiplicity="*" />
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+          <End Role="DonationDetails" Type="Self.DonationDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AppUser">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="DonationDetail">
+            <Dependent Role="DonationDetails">
               <PropertyRef Name="IdAppUser" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="HopeITEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppUsers" EntityType="Self.AppUser" />
+          <EntitySet Name="DonationDetails" EntityType="Self.DonationDetail" />
+          <AssociationSet Name="FK_DonationDetails_AppUser" Association="Self.FK_DonationDetails_AppUser">
+            <End Role="AppUser" EntitySet="AppUsers" />
+            <End Role="DonationDetails" EntitySet="DonationDetails" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HopeITDatabaseModelStoreContainer" CdmEntityContainer="HopeITEntities">
+        <EntityContainerMapping StorageEntityContainer="HopeITModelStoreContainer" CdmEntityContainer="HopeITEntities">
           <EntitySetMapping Name="AppUsers">
-            <EntityTypeMapping TypeName="HopeIT.Database.Model.AppUser">
+            <EntityTypeMapping TypeName="HopeITModel.AppUser">
               <MappingFragment StoreEntitySet="AppUser">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DonationDetails">
-            <EntityTypeMapping TypeName="HopeIT.Database.Model.DonationDetail">
+            <EntityTypeMapping TypeName="HopeITModel.DonationDetail">
               <MappingFragment StoreEntitySet="DonationDetails">
-                <ScalarProperty Name="Opis" ColumnName="Opis" />
-                <ScalarProperty Name="Kwota" ColumnName="Kwota" />
-                <ScalarProperty Name="IdAppUser" ColumnName="IdAppUser" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAppUser" ColumnName="IdAppUser" />
+                <ScalarProperty Name="Kwota" ColumnName="Kwota" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

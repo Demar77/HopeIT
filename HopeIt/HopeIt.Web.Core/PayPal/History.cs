@@ -32,7 +32,16 @@ namespace HopeIt.Web.Core.PayPal
             var payments = GetAllTransactions();
             foreach (var payment in payments)
             {
-                payerInfoList.Add(payment.payer.payer_info);
+                try
+                {
+                    payerInfoList.Add(payment.payer.payer_info);
+                }
+                catch 
+                {
+
+                    
+                }
+               
             }
             return payerInfoList;
         }
@@ -41,6 +50,13 @@ namespace HopeIt.Web.Core.PayPal
         {
             var paymentList = GetAllTransactions();
             var transactions = paymentList.Where(d => d.payer.payer_info.payer_id == payer_id).SelectMany(t => t.transactions);
+            return transactions.ToList();
+        }
+
+        public List<Transaction> GetDonorHistoryByName(string name)
+        {
+            var paymentList = GetAllTransactions().Where(p => p.payer != null);
+            var transactions = paymentList.Where(d => d.payer.payer_info.first_name + " " + d.payer.payer_info.last_name == name).SelectMany(t => t.transactions);
             return transactions.ToList();
         }
     }

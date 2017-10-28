@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3a836d8421dc4d60a1b152ba90ceb95d" Name="Diagram1">
-        <EntityTypeShape EntityType="HopeIT.Database.Model.AppUser" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="HopeIT.Database.Model.DonationDetail" Width="1.5" PointX="3" PointY="4.25" />
-        <AssociationConnector Association="HopeIT.Database.Model.FK_DonationDetails_AppUser" />
+      <Diagram DiagramId="8c6b49752de5491f8c8dd2a9cc8aaa35" Name="Diagram1">
+        <EntityTypeShape EntityType="HopeITModel.AppUser" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HopeITModel.DonationDetail" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="HopeITModel.FK_DonationDetails_AppUser" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

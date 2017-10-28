@@ -59,6 +59,12 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -131,9 +137,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.ApplicationInsights">
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
@@ -216,6 +219,7 @@
     <Content Include="Views\AppUser\View.cshtml" />
     <Content Include="Views\AppUser\Profile.cshtml" />
     <Content Include="Views\AppUser\Index.cshtml" />
+    <Content Include="Views\AppUser\UpdateData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -238,6 +242,10 @@
     <ProjectReference Include="..\HopeIT.Database\HopeIT.Database.csproj">
       <Project>{7adbe061-bff5-4f48-8452-1dd87f7723d2}</Project>
       <Name>HopeIT.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HopeIt.Web.Core\HopeIt.Web.Core.csproj">
+      <Project>{7beb3b80-64de-4550-97ce-53999e0304e5}</Project>
+      <Name>HopeIt.Web.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

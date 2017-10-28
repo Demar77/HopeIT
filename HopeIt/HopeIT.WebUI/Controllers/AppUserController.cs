@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HopeIt.Web.Core;
+using PayPal.Api;
 
 namespace HopeIT.WebUI.Controllers
 {
@@ -12,24 +14,39 @@ namespace HopeIT.WebUI.Controllers
         //// GET: AppUser
         public ActionResult Index()
         {
+            var listUserPayPal = new List<PayerInfo>();
+
+
             var repo = new AppUserRepo();
+            
             var result = repo.GetAppUser();
             
             return View(result);
         }
 
-        // 
-        // GET: /AppUser/ 
+        public ActionResult UpdateData()
+        {
 
-        //public string Index()
-        //{
-        //    return "This is my <b>default</b> <i>AppUser</i> action...";
-        //}
+            var repo = new AppUserRepo();
+            repo.UpdateUser();
+            repo.UpdateDetails();
 
-        // 
-        // GET: /AppUser/List/ 
+            return View(repo);
 
-        public string List()
+        }
+
+            // 
+            // GET: /AppUser/ 
+
+            //public string Index()
+            //{
+            //    return "This is my <b>default</b> <i>AppUser</i> action...";
+            //}
+
+            // 
+            // GET: /AppUser/List/ 
+
+            public string List()
         {
             return "This is the AppUser list action method...";
         }
