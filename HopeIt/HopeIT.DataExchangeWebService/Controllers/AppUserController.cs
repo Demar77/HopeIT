@@ -1,4 +1,5 @@
-﻿using HopeIT.DataExchangeWebService.Models;
+﻿using HopeIT.Database.Repository;
+using HopeIT.DataExchangeWebService.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +11,22 @@ namespace HopeIT.DataExchangeWebService.Controllers
 {
     public class AppUserController : ApiController
     {
-        AppUser[] appUsers = new AppUser[]
+        public List<Database.Model.AppUser> GetAllAppUsers()
         {
-            new AppUser { Id = 1, Name = "Tomato-Soup" },
-            new AppUser { Id = 2, Name = "Yo-Yo" },
-            new AppUser { Id = 3, Name = "Hammer-Ho" },
-        };
-
-        public IEnumerable<AppUser> GetAllAppUsers()
-        {
-            return appUsers;
+            var repo = new AppUserRepo();
+            var result = repo.GetAppUser();
+            return result;
         }
 
         public IHttpActionResult GetAppUser(int id)
         {
-            var appUser = appUsers.FirstOrDefault(r => r.Id == id);
-            if (appUser == null)
+            var repo = new AppUserRepo();
+            var result = repo.GetAppUserById(id);
+            if (result == null)
             {
                 return NotFound();
             }
-            return Ok(appUser);
+            return Ok(result);
         }
     }
 }
