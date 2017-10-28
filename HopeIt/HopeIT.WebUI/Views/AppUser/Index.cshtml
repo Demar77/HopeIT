@@ -1,0 +1,42 @@
+﻿@model IEnumerable<HopeIT.Database.Model.AppUser>
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+    <title>Index</title>
+</head>
+<body>
+    <h1>Donors list</h1>
+    <hr />
+    <div style="width:500px;">
+        @Html.Grid(Model).Columns(columns =>
+   {
+       columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .SetWidth(30)
+        .RenderValueAs(d =>
+            @<b>
+                @Html.ActionLink("Donations", "Index")
+            </b>);
+       columns.Add(c => c.Id)
+       .Titled("Client ID");
+       columns.Add(c => c.Name)
+       .Titled("Name")
+       .Filterable(true);
+   }).WithPaging(3).Sortable(true)
+    </div>
+</body>
+</html>
