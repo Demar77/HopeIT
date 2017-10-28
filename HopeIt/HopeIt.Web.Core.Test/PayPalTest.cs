@@ -9,10 +9,11 @@ namespace HopeIt.Web.Core.Test
         [TestMethod]
         public void GetHistory()
         {
-
-
             var history = new History();
-            history.GetAllTransactions();
+            var donors = history.GetDonors();
+            var donor = donors[0];
+            var donorHistory = history.GetDonorHistory(donor.payer_id);
+
         }
     }
 }
